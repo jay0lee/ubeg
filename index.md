@@ -37,12 +37,20 @@ function handleClick() {
         this_rule = $.extend( true, {}, rule);
         this_rule["condition"]["regexFilter"] = meet_regex;
         this_rule["id"] = i + 1;
-        console.log(this_rule);
         rules.push(this_rule);
       }
       var zip = new JSZip();
+      // split into rulesets of 1k each
+      var i, j, ruleset, filename, temparray,chunk = 1000;
+      var n = 0
+      for (i=0,j=rules.length; i<j; i+=chunk) {
+        n = n + 1;
+        ruleset = array.slice(i, i+chunk);
+        filename = `rules${n}.json`
+        zip.file(filename, JSON.stringify(ruleset, null, 2));
+        manifest["declarative_net_request"]["rule_resources:].push({"id": `ruleset_${n}`, "enabled": true, "path": filename}
+      }
       zip.file("manifest.json", JSON.stringify(manifest, null, 2));
-      zip.file("rules.json", JSON.stringify(rules, null, 2));
       zip.generateAsync({type:"blob"}).then(function(content) {
         saveAs(content, "example.zip");
       });
