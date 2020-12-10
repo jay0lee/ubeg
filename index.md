@@ -3,8 +3,8 @@
 <title>Butcher Block Extension Builder</title>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="/jszip.min.js"></script>
-<script src="/FileSaver.min.js"></script>
+<script src="jszip.min.js"></script>
+<script src="FileSaver.min.js"></script>
 <script>
 function handleClick() {
   $.getJSON('/manifest_template.json', function(manifest) {
