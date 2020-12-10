@@ -53,7 +53,7 @@ function handleClick() {
 </script>
 </head>
 <body>
-
+  <h2>Meet Blocking Extension Generator</h2>
 <form name="exdetails" method="post" onSubmit="handleClick(); return false">
         Name your extension (default is "MeetBlock": <input type="text" id="ext_name" name="ext_name"><br>
         List Meet IDs to be blocked:<br>
