@@ -35,7 +35,7 @@ function handleClick() {
         meet_regex = `(?i)${meet_id.substring(0, 3)}[-]?${meet_id.substring(3, 7)}[-]?${meet_id.substring(7, 10)}`;
         this_rule = $.extend( true, {}, rule);
         this_rule["condition"]["regexFilter"] = meet_regex;
-        this_rule["id"] = i;
+        this_rule["id"] = i + 1;
         console.log(this_rule);
         rules.push(this_rule);
       }
