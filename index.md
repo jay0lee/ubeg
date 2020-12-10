@@ -7,8 +7,8 @@
 <script src="FileSaver.min.js"></script>
 <script>
 function handleClick() {
-  $.getJSON('/manifest_template.json', function(manifest) {
-    $.getJSON('/rule_template.json', function(rule) {
+  $.getJSON('manifest_template.json', function(manifest) {
+    $.getJSON('rule_template.json', function(rule) {
       var ext_name = document.getElementById('ext_name').value;
       var meet_ids = document.getElementById('meet_ids').value.split('\n');
       manifest.name = ext_name;
