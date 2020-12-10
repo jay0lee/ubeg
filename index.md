@@ -45,7 +45,7 @@ function handleClick() {
       var n = 0
       for (i=0,j=rules.length; i<j; i+=chunk) {
         n = n + 1;
-        ruleset = array.slice(i, i+chunk);
+        ruleset = rules.slice(i, i+chunk);
         filename = `rules${n}.json`
         zip.file(filename, JSON.stringify(ruleset, null, 2));
         manifest["declarative_net_request"]["rule_resources"].push({"id": `ruleset_${n}`, "enabled": true, "path": filename});
