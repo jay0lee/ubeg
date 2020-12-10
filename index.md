@@ -20,6 +20,7 @@ function handleClick() {
       var minutes = nowd.getUTCMinutes().toString().padStart(2, "0");
       var seconds = nowd.getUTCSeconds().toString().padStart(2, "0");
       var ver_str = `${year}.${month}${dom}.${hour}.${minutes}${seconds}`;
+      manifest.version = ver_str;
       var rules = [];
       var this_rule;
       var meet_id;
