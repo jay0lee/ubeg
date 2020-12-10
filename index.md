@@ -48,7 +48,7 @@ function handleClick() {
         ruleset = array.slice(i, i+chunk);
         filename = `rules${n}.json`
         zip.file(filename, JSON.stringify(ruleset, null, 2));
-        manifest["declarative_net_request"]["rule_resources:].push({"id": `ruleset_${n}`, "enabled": true, "path": filename}
+        manifest["declarative_net_request"]["rule_resources:].push({"id": `ruleset_${n}`, "enabled": true, "path": filename});
       }
       zip.file("manifest.json", JSON.stringify(manifest, null, 2));
       zip.generateAsync({type:"blob"}).then(function(content) {
