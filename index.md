@@ -59,9 +59,11 @@ function handleClick() {
 <form name="exdetails" method="post" onSubmit="handleClick(); return false">
         Name your extension: <input type="text" id="ext_name" name="ext_name"><br>
         List URLs to be blocked:<br>
-        <textarea id="urls" name="urls" rows="25" cols="20"></textarea><br>
+        <textarea id="urls" name="urls" rows="15" cols="20"></textarea><br>
         <br>
         <input name="Submit"  type="submit" value="Generate Extension" />
 </form>
+
+Like UBEG? Take a look <a href="https://github.com/jay0lee/ubeg">at the source</a>.
 
 </body>
