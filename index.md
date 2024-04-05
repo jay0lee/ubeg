@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Butcher Block Extension Builder</title>
+<title>URL Blocking Extension Generator</title>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="jszip.min.js"></script>
@@ -10,7 +10,7 @@ function handleClick() {
   $.getJSON('manifest_template.json', function(manifest) {
     $.getJSON('rule_template.json', function(rule) {
       var ext_name = document.getElementById('ext_name').value;
-      var meet_ids = document.getElementById('meet_ids').value.split('\n');
+      var urls = document.getElementById('urls').value.split('\n');
       manifest.name = ext_name;
       var nowd = new Date();
       var year = nowd.getUTCFullYear().toString();
@@ -23,19 +23,13 @@ function handleClick() {
       manifest.version = ver_str;
       var rules = [];
       var this_rule;
-      var meet_id;
-      var meet_regex;
+      var url;
+      var url_regex;
       var this_rule;
-      for(var i = 0;i < meet_ids.length;i++) {
-        meet_id = meet_ids[i];
-        meet_id = meet_id.replace(/-/g, '');
-        meet_id = meet_id.toLowerCase();
-        if (meet_id.length != 10) {
-          continue;
-        }
-        meet_regex = `(?i)${meet_id.substring(0, 3)}[-]?${meet_id.substring(3, 7)}[-]?${meet_id.substring(7, 10)}`;
+      for(var i = 0;i < urls.length;i++) {
+        url = urls[i];
         this_rule = $.extend( true, {}, rule);
-        this_rule["condition"]["regexFilter"] = meet_regex;
+        this_rule["condition"]["regexFilter"] = url;
         this_rule["id"] = i + 1;
         rules.push(this_rule);
       }
@@ -52,7 +46,7 @@ function handleClick() {
       }
       zip.file("manifest.json", JSON.stringify(manifest, null, 2));
       zip.generateAsync({type:"blob"}).then(function(content) {
-        saveAs(content, "example.zip");
+        saveAs(content, "ubeg-:+ver_str+".zip");
       });
     });
   });
@@ -61,11 +55,11 @@ function handleClick() {
 </script>
 </head>
 <body>
-  <h2>Meet Blocking Extension Generator</h2>
+  <h2>URL Blocking Extension Generator</h2>
 <form name="exdetails" method="post" onSubmit="handleClick(); return false">
         Name your extension: <input type="text" id="ext_name" name="ext_name"><br>
-        List Meet IDs to be blocked:<br>
-        <textarea id="meet_ids" name="meet_ids" rows="25" cols="20"></textarea><br>
+        List URLs to be blocked:<br>
+        <textarea id="urls" name="urls" rows="25" cols="20"></textarea><br>
         <br>
         <input name="Submit"  type="submit" value="Generate Extension" />
 </form>
