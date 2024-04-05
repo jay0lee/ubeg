@@ -5,8 +5,10 @@
     "rule_resources": []
   },
   "permissions": [
-    "<all_urls>",
     "declarativeNetRequest"
+  ],
+  "host_permissions": [
+    "<all_urls>"
   ],
   "manifest_version": 3
 }
