@@ -59,7 +59,7 @@ function handleClick() {
 <form name="exdetails" method="post" onSubmit="handleClick(); return false">
         Name your extension: <input type="text" id="ext_name" name="ext_name"><br>
         List regex URLs to be blocked, one per line.<br>
-        Example: "bing/.com" will block Bing.<br>
+        Example: "bing\.com" will block Bing.<br>
         <textarea id="urls" name="urls" rows="15" cols="20"></textarea><br>
         <br>
         <input name="Submit"  type="submit" value="Generate Extension" />
