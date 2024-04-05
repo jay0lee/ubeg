@@ -46,7 +46,7 @@ function handleClick() {
       }
       zip.file("manifest.json", JSON.stringify(manifest, null, 2));
       zip.generateAsync({type:"blob"}).then(function(content) {
-        saveAs(content, "ubeg-:+ver_str+".zip");
+        saveAs(content, "ubeg-"+ver_str+".zip");
       });
     });
   });
