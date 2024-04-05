@@ -58,7 +58,8 @@ function handleClick() {
   <h2>URL Blocking Extension Generator</h2>
 <form name="exdetails" method="post" onSubmit="handleClick(); return false">
         Name your extension: <input type="text" id="ext_name" name="ext_name"><br>
-        List URLs to be blocked:<br>
+        List regex URLs to be blocked, one per line.<br>
+        Example: "\.edu$" will block all EDU domains.
         <textarea id="urls" name="urls" rows="15" cols="20"></textarea><br>
         <br>
         <input name="Submit"  type="submit" value="Generate Extension" />
