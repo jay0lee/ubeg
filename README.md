@@ -1,4 +1,4 @@
 # ubeg
 URL Blocker Extension Generator
 
-You probably want [this page](https://jay0lee.github.io/ubeg/)
+This repo hosts the live source code behind [UBEG](https://jay0lee.github.io/ubeg/)
